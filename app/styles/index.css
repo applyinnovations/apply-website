@@ -4,6 +4,18 @@
   --orange: rgb(245, 156, 96);
   --red: rgb(230, 73, 63);
   --pink: rgb(244, 144, 176);
+  --shadow-elevation-medium: 0.3px 0.5px 0.7px hsl(var(--pink) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--pink) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--pink) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--pink) / 0.36);
+  --shadow-elevation-high: 0.3px 0.5px 0.7px hsl(var(--pink) / 0.34),
+    1.5px 2.9px 3.7px -0.4px hsl(var(--pink) / 0.34),
+    2.7px 5.4px 6.8px -0.7px hsl(var(--pink) / 0.34),
+    4.5px 8.9px 11.2px -1.1px hsl(var(--pink) / 0.34),
+    7.1px 14.3px 18px -1.4px hsl(var(--pink) / 0.34),
+    11.2px 22.3px 28.1px -1.8px hsl(var(--pink) / 0.34),
+    17px 33.9px 42.7px -2.1px hsl(var(--pink) / 0.34),
+    25px 50px 62.9px -2.5px hsl(var(--pink) / 0.34);
 }
 
 html,
@@ -15,6 +27,20 @@ body {
 body {
   color: hsl(0, 0%, 100%);
   background-color: var(--pink);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }
 
 .home {
@@ -29,6 +55,84 @@ h2 {
   top: 50px;
   left: 50px;
   font-weight: normal;
+}
+
+.contact {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.floatingBox {
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgba(111, 111, 111, 0.5);
+  background-color: rgb(254, 254, 255);
+  z-index: 2;
+}
+
+.burrow {
+  z-index: 0;
+}
+
+.floatingBoxMessage {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  z-index: 1;
+}
+
+.floatingBoxMessage input {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  width: calc(100% - 20px);
+  padding: 5px;
+  font-size: 11px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #ccc;
+}
+
+.floatingBoxContact {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  z-index: 1;
+}
+
+.floatingBoxExpanded {
+  padding: 10px 20px 10px 10px;
+  z-index: 1;
+  color: #000;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.floatingBoxExpanded > ul {
+  margin-top: 25px;
+  display: flex;
+}
+
+.floatingBoxExpanded > ul > li {
+  margin-right: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.contact > span {
+  margin: 0 3px;
+  padding: 5px 8px;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .flex {
