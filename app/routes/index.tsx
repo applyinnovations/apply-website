@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LinksFunction } from "remix";
 import { motion } from "framer-motion";
 import stylesUrl from "../styles/index.css";
@@ -9,6 +9,7 @@ import imgY from "../images/Y.svg";
 import bg from "../images/bg.png";
 
 import Typewriter from "typewriter-effect";
+import Canvas from "~/src/Canvas";
 
 export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: stylesUrl }];
@@ -52,13 +53,23 @@ export default function Index() {
   const botText =
     "Hi, I'm DotBot. The App/y intern. What innovations do you want to see in your business or venture?";
 
+  const [dimension, setDimension] = useState({ width: "100", height: "100" });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDimension({
+        width: window?.innerWidth,
+        height: window?.innerHeight,
+      });
+    }
+  }, []);
   return (
     <div className="home">
+      <Canvas {...dimension} />
       <motion.h2 initial="hidden" animate="visible" variants={topTextVariants}>
         Using digital intelligence to transform technology and <br /> customer
         experience for forward-thinking businesses
       </motion.h2>
-
       <div className="contact">
         <span
           className={`floatingBox ${burrow}`}
@@ -146,7 +157,6 @@ export default function Index() {
           </motion.ul>
         </motion.div>
       </div>
-
       <div className="logo">
         <img src={bg} alt="" className="logoBG" />
         <h1 className="flex">
