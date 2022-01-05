@@ -143,6 +143,7 @@ h2 {
   position: absolute;
   bottom: 50px;
   pointer-events: none;
+  display: none;
 }
 
 .logoBG {
